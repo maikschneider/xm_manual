@@ -41,6 +41,7 @@ mod.wizards.newContentElement.wizardItems {
   menu.show =
   luxletter.show =
   container.show =
+  ext-news.show =
 }
 
 TCEFORM.tt_content.CType.removeItems >
