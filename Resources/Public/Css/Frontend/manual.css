@@ -167,4 +167,8 @@ figcaption {
 		max-height: 80vh;
 		object-fit: contain;
 	}
+
+	p > span {
+		-webkit-print-color-adjust: exact;
+	}
 }
