@@ -39,12 +39,12 @@
 </f:section>
 
 <f:section name="page">
-	<section class="break-before">
+	<section class="{f:if(condition:noPageBreak, else: 'break-before')}">
 		<h2 id="p{page.data.uid}">{page.title}</h2>
 		<f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pid: page.data.uid, colPos: '0'}"/>
 
 		<f:for each="{page.children}" as="subpage">
-			<f:render section="page" arguments="{page:subpage}"/>
+			<f:render section="page" arguments="{page:subpage, noPageBreak:'true'}"/>
 		</f:for>
 	</section>
 </f:section>

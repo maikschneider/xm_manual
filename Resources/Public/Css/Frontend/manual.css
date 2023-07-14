@@ -45,6 +45,11 @@ img[data-icon-name] {
 	display: inline !important;
 }
 
+ul, ul li, ol, ol li {
+	break-inside: auto;
+	page-break-inside: auto;
+}
+
 ul li {
 	margin-bottom: .5rem;
 }
@@ -112,6 +117,10 @@ figure {
 	margin: 0.25rem 0;
 }
 
+figure.image {
+	border: 1px solid darkgrey;
+}
+
 figcaption {
 	font-style: italic;
 	opacity: 0.6;
@@ -148,4 +157,29 @@ figcaption {
 
 .ce-focuspoint-bodytext {
 	margin-bottom: var(--space);
+}
+
+@media print {
+	h2 {
+		font-size: 1.5rem
+	}
+
+	h3 {
+		font-size: 1.25rem;
+	}
+
+	figure.image {
+		max-height: 80vh;
+		object-fit: contain;
+	}
+
+	figure.image img {
+		max-height: 80vh !important;
+		height: auto !important;
+		width: auto !important;
+	}
+
+	p > span {
+		-webkit-print-color-adjust: exact;
+	}
 }
