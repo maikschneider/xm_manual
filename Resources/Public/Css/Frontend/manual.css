@@ -162,4 +162,9 @@ figcaption {
 	h3 {
 		font-size: 1.25rem;
 	}
+
+	figure.image {
+		max-height: 80vh;
+		object-fit: contain;
+	}
 }
