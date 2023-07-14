@@ -173,7 +173,7 @@ figcaption {
 		object-fit: contain;
 	}
 
-	figure.image img {
+	figure.image > img {
 		max-height: 80vh !important;
 		height: auto !important;
 		width: auto !important;
