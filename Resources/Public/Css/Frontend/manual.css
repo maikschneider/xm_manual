@@ -45,6 +45,11 @@ img[data-icon-name] {
 	display: inline !important;
 }
 
+ul, ul li, ol, ol li {
+	break-inside: auto;
+	page-break-inside: auto;
+}
+
 ul li {
 	margin-bottom: .5rem;
 }
@@ -176,9 +181,5 @@ figcaption {
 
 	p > span {
 		-webkit-print-color-adjust: exact;
-	}
-
-	ul {
-		break-inside: auto;
 	}
 }
