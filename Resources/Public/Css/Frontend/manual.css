@@ -112,6 +112,10 @@ figure {
 	margin: 0.25rem 0;
 }
 
+figure.image {
+	border: 1px solid darkgrey;
+}
+
 figcaption {
 	font-style: italic;
 	opacity: 0.6;
