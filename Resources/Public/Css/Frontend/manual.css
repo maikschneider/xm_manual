@@ -171,4 +171,8 @@ figcaption {
 	p > span {
 		-webkit-print-color-adjust: exact;
 	}
+
+	ul {
+		break-inside: auto;
+	}
 }
