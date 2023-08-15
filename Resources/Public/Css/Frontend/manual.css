@@ -182,4 +182,8 @@ figcaption {
 	p > span {
 		-webkit-print-color-adjust: exact;
 	}
+
+	main {
+		display: block; // for firefox print preview
+	}
 }
