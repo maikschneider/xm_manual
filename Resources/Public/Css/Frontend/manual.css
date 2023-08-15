@@ -184,6 +184,6 @@ figcaption {
 	}
 
 	main {
-		display: block; // for firefox print preview
+		display: block;
 	}
 }
