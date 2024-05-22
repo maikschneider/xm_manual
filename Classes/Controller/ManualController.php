@@ -61,10 +61,10 @@ class ManualController extends ActionController
         return isset($rootline[0], $rootline[0]['doktype']) && $rootline[0]['doktype'] === 701;
     }
 
-    protected function getUidOfFirstManualPage(): int
+    protected function getUidOfFirstAccessibleManualPage(): int
     {
         $qb = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('pages');
-        $page = $qb->select('uid')
+        $pages = $qb->select('uid')
             ->from('pages')
             ->where(
                 $qb->expr()->and(
@@ -73,9 +73,16 @@ class ManualController extends ActionController
                 )
             )
             ->execute()
-            ->fetchOne();
+            ->fetchAllAssociative();
 
-        return $page ?: 0;
+        foreach ($pages as $row) {
+            $access = BackendUtility::readPageAccess($row['uid'], $GLOBALS['BE_USER']->getPagePermsClause(Permission::PAGE_SHOW));
+            if ($access !== false) {
+                return $row['uid'];
+            }
+        }
+
+        return 0;
     }
 
     public function indexAction(): ResponseInterface
@@ -93,7 +100,7 @@ class ManualController extends ActionController
         $pageId = (int)($this->request->getParsedBody()['id'] ?? $this->request->getQueryParams()['id'] ?? 0);
 
         if (!$this->isManualRootPage($pageId)) {
-            $pageId = $this->getUidOfFirstManualPage();
+            $pageId = $this->getUidOfFirstAccessibleManualPage();
         }
 
         $this->moduleTemplate->setBodyTag('<body class="typo3-module-xm_manual">');
