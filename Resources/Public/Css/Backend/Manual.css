@@ -11,3 +11,8 @@
 .typo3-module-xm_manual .module-body iframe {
 	height: 100%;
 }
+
+div[data-module-name="workspace_previewcontrols"] #typo3-topbar,
+.preview-mode-slider #live-view {
+	display: none;
+}
