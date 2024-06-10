@@ -12,7 +12,9 @@
 	height: 100%;
 }
 
+/* Hide unnecessary TYPO3 workspace overlays in manual */
 div[data-module-name="workspace_previewcontrols"] #typo3-topbar,
-.preview-mode-slider #live-view {
+.preview-mode-slider #live-view,
+#typo3-preview-info {
 	display: none;
 }
