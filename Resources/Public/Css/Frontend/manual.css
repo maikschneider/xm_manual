@@ -140,6 +140,14 @@ figcaption {
 	order: 1;
 }
 
+/* Hide unnecessary TYPO3 workspace overlays in manual */
+#typo3-preview-info {
+  display: none;
+}
+
+/**
+	Media type adjustments
+ */
 @media (min-width: 800px) {
 	.ce-image.ce-right, .ce-image.ce-left {
 		grid-template-columns: 1fr 1fr;
